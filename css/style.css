@@ -38,5 +38,5 @@
 }
 
 .score_background_color {
-    background: linear-gradient(136deg, rgba(255, 255, 255, 0.56) 0%, rgba(152, 151, 151, 0) 102.037%);
+    background-color: red;
 }
