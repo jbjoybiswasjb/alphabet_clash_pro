@@ -9,7 +9,15 @@
 function continuePlay() {
     // Step 1: generate a random alphabet.
     const alphabet = getRandomAlphabet();
-    console.log(alphabet);
+    // console.log(alphabet);
+
+    // Step 2: Set random alphabet to the screen show.
+    const displayElement = document.getElementById('display_text');
+    displayElement.innerText = alphabet.toUpperCase();
+    // console.log(displayElement);
+
+    // Step 3: Set background color.
+    setBackgroundColorByClass(alphabet);
 }
 
 function play() {
