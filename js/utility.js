@@ -31,3 +31,15 @@ function removeBackgroundColorByClass(elementId) {
     const element = document.getElementById(elementId);
     element.classList.remove('key_highlight_color');
 }
+
+function getElementValueById (elementId) {
+    const element = document.getElementById(elementId);
+    const elementText = element.innerText;
+    const elementValue = parseInt(elementText);
+    return elementValue;
+}
+
+function setElementValueById (elementId, value) {
+    const element = document.getElementById(elementId);
+    element.innerText = value;
+}

@@ -21,22 +21,40 @@ function handleKeyboardButtonPress(event) {
         removeBackgroundColorByClass(expectedAlphabetSmallLatter);
         continuePlay();
 
-        const scoreElement = document.getElementById('score_element');
-        const scoreText = scoreElement.innerText;
-        const scoreNumber = parseInt(scoreText);
+        const value = getElementValueById('score_element');
+        const currentScore = value + 1;
+        setElementValueById('score_element', currentScore);
 
-        const updateScore = scoreNumber + 1;
-        scoreElement.innerText = updateScore;
+
+        // const scoreElement = document.getElementById('score_element');
+        // const scoreText = scoreElement.innerText;
+        // const scoreNumber = parseInt(scoreText);
+
+        // const updateScore = scoreNumber + 1;
+        // scoreElement.innerText = updateScore;
 
     }
     else {
         // console.log('Not matched.');
-        const lifeElement = document.getElementById('life_element');
-        const lifeText = lifeElement.innerText;
-        const lifeNumber = parseInt(lifeText);
 
-        const updateLife =  lifeNumber - 1;
-        lifeElement.innerText = updateLife;
+        const value = getElementValueById('life_element');
+        const updatedLife = value - 1;
+        setElementValueById('life_element', updatedLife);
+
+
+        if (updatedLife <= 0) {
+            classAdd('alphabet_clash_playground');
+            classRemove('alphabet_clash_score');
+        }
+
+
+
+        // const lifeElement = document.getElementById('life_element');
+        // const lifeText = lifeElement.innerText;
+        // const lifeNumber = parseInt(lifeText);
+
+        // const updateLife =  lifeNumber - 1;
+        // lifeElement.innerText = updateLife;
     }
 }
 
