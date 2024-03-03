@@ -26,3 +26,8 @@ function setBackgroundColorByClass(elementId) {
     const element = document.getElementById(elementId);
     element.classList.add('key_highlight_color');
 }
+
+function removeBackgroundColorByClass(elementId) {
+    const element = document.getElementById(elementId);
+    element.classList.remove('key_highlight_color');
+}
