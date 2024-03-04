@@ -9,6 +9,11 @@
 function handleKeyboardButtonPress(event) {
     // Find the pressed key.
     const pressedAlphabet = event.key;
+    console.log(pressedAlphabet);
+
+    if (pressedAlphabet === 'Escape') {
+        gameOver();
+    }
 
     // Find the expected key.
     const expectedElement = document.getElementById('display_text');
@@ -41,10 +46,8 @@ function handleKeyboardButtonPress(event) {
         const updatedLife = value - 1;
         setElementValueById('life_element', updatedLife);
 
-
-        if (updatedLife <= 0) {
-            classAdd('alphabet_clash_playground');
-            classRemove('alphabet_clash_score');
+        if (updatedLife === 0) {
+            gameOver();
         }
 
 
@@ -77,6 +80,22 @@ function continuePlay() {
 
 function play() {
     classAdd('alphabet_clash_home');
+    classAdd('alphabet_clash_score');
     classRemove('alphabet_clash_playground');
     continuePlay();
+
+    setElementValueById('score_element', 0);
+    setElementValueById('life_element', 5);
+}
+
+function gameOver() {
+    const updatedScore = getElementValueById('score_element');
+    setElementValueById('last_score', updatedScore);
+
+    const currentAlphabet = elementText('display_text');
+    const currentAlphabetSmaller = currentAlphabet.toLowerCase();
+    removeBackgroundColorByClass(currentAlphabetSmaller);
+
+    classAdd('alphabet_clash_playground');
+    classRemove('alphabet_clash_score');
 }
